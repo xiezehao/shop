@@ -13,8 +13,9 @@ export default {
 
 <style scoped>
 #footer{
+  height: 100%;
   margin-top: 20px;
-    border-top: 2px solid #1E90FF;
+  border-top: 2px solid #1E90FF;
 }
 p{
     color: #1E90FF;

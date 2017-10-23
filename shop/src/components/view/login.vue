@@ -11,23 +11,23 @@
                     <div class="icon">
                         <img src="../../assets/login/user.png" alt="">
                     </div>
-                    <input type="text" name="" id="userInput" placeholder="请输入用户名">
+                    <input type="text" name="" id="userInput" v-model="username" placeholder="请输入用户名">
                 </div>
 
                 <div id="user" class="input">
                     <div class="icon">
                         <img src="../../assets/login/password.png" alt="">
                     </div>
-                    <input type="text" name="" id="userInput" placeholder="请输入密码">
+                    <input type="password" name="" id="userInput" v-model="password" placeholder="请输入密码" @keydown.enter="login">
                 </div>
 
                  <div id="user" class="input">
-                    <button>登陆</button>
+                    <button @click="login">登陆</button>
                 </div>
 
                 <div id="user" class="input bottom">
-                    <span>忘记密码</span>
-                    <span>免费注册</span>
+                    <router-link to="/register">免费注册</router-link>
+                     <router-link to="/forgetPassword">忘记密码</router-link> 
                 </div>
             </div>
         </div>
@@ -37,11 +37,36 @@
 </template>
 
 <script>
-import logo from "@/components/common/logo"
+import logo from "@/components/common/logo";
+import store from '@/vuex/store';
 export default {
+    data () {
+        return {
+            username:"",
+            password:""
+        }
+    },
+    methods: {
+        login(){
+            const _this=this;
+            this.axios.get(this.$store.state.url+"?c=User&f=login&username="+this.username+"&password="+this.password)
+                      .then(response=>{
+                          if (response.data.code!="100") {
+                              sessionStorage.setItem("userId",response.data.msg[0].id);
+                              sessionStorage.setItem("username",response.data.msg[0].username);
+                              sessionStorage.setItem("user",response.data.msg[0]);
+                              _this.$router.push("/");
+                          }else if(response.data.code=="100"){
+                              alert(response.data.msg);
+                          }
+                      })
+        }
+        
+    },
   components: {
       logo
-  }
+  },
+  store
 }
 </script>
 
@@ -108,10 +133,11 @@ export default {
     font-size: 12px;
     border: none;
 }
-.bottom span{
+.bottom a{
     color: #999;
+    text-decoration: none;
 }
-.bottom span:hover{
+.bottom a:hover{
     color: #1E90FF;
     cursor: pointer;
 }

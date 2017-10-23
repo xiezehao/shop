@@ -4,45 +4,44 @@
       <div id="product">
             <div style="display: block;">
               <div id="imgDiv">
-                <img id="main_img" src="../../assets/productList/productList.jpeg" alt="">
+                <img id="main_img" :src="sub_iamges[imgIndex]" alt="">
                 <div id="imgList">
-                    <img src="../../assets/productList/productList.jpeg" alt="">
-                    <img src="../../assets/productList/productList.jpeg" alt="">
-                    <img src="../../assets/productList/productList.jpeg" alt="">
+                    <img v-for="(item,index) in sub_iamges" :src="item" alt="" @mouseover="imgIndex=index">
                 </div>
               </div>
               <div id="detail">
                 <div id="title">
-                    <span>【测试学习使用】Haier/海尔HJ100-1HU1 10公斤滚筒洗衣机全自动带烘干大容量 洗烘一体 厨卫家电</span>
+                    <span>{{productMsg.name}}</span>
                 </div>
 
-                <p class="red activity">门店机型 德邦送货</p>
+                <p class="red activity">{{productMsg.subtitle}}</p>
             
                 <div id="price">
-                    <span id="span1">价格:<span class="red span2">¥4500</span></span>
+                    <span id="span1">价格:<span class="red span2">{{productMsg.price}}</span></span>
                 </div>
                 <div id="stock">
-                    <span id="span3">库存:<span class="span4">9985</span></span>
+                    <span id="span3">库存:<span class="span4">{{productMsg.stock}}</span></span>
                 </div>
 
                 <div id="count">
                     <span id="span5">数量:</span>
-                    <span id="add" class="span">+</span>
-                    <span id="p-count" class="span">1</span>
-                    <span id="reduce" class="span">-</span>
+                    <button id="add" class="span" @click="add">+</button>
+                    <span id="p-count" class="span">{{quantity}}</span>
+                    <button id="reduce" class="span" @click="reduce">-</button>
                 </div>
 
-                <button id="buy">立即购买</button>
-                <a href="#" id="shopcar">加入购物车</a>
+                <button id="buy" @click="to">立即购买</button>
+                 <!-- <span id="shopcar">加入购物车</span> 
+                 <span>购物车已存在该商品</span> -->
               </div>
             </div>
             
 
             <div id="productDetail">
                 <div id="nav">
-                    <a href="#">商品详情</a>
+                    <a href="javascript:void(0);">商品详情</a>
                 </div>
-                <p><img alt="1TB2WLZrcIaK.eBjSspjXXXL.XXa_!!2114960396.jpg" src="http://img.happymmall.com/ffcce953-81bd-463c-acd1-d690b263d6df.jpg" width="790" height="920"><img alt="2TB2zhOFbZCO.eBjSZFzXXaRiVXa_!!2114960396.jpg" src="http://img.happymmall.com/58a7bd25-c3e7-4248-9dba-158ef2a90e70.jpg" width="790" height="1052"><img alt="3TB27mCtb7WM.eBjSZFhXXbdWpXa_!!2114960396.jpg" src="http://img.happymmall.com/2edbe9b3-28be-4a8b-a9c3-82e40703f22f.jpg" width="790" height="820"><br></p>
+                <div v-html="productMsg.detail" style="text-align: center;padding-top:10px;"></div>
             </div>
       </div>
   </div>
@@ -53,6 +52,61 @@ import shopHeader from "@/components/common/header";
 export default {
   components: {
       shopHeader
+  },
+  data () {
+      return {
+        userId:0,
+        product_id:this.$route.params.product_id,
+        productMsg:[],
+        sub_iamges:[],
+        quantity:1,
+        imgIndex:0      
+      }
+  },
+  mounted () {
+    this.axios.get("https://www.xiezehao.com/shop/shopPHP/?c=Product&f=productMsg&product_id="+this.product_id)
+              .then(response=>{
+                  this.productMsg=response.data[0];
+                  this.sub_iamges=this.productMsg.sub_iamges.split(",");
+              })  
+  },
+  methods: {
+      to(){
+          this.userId=sessionStorage.getItem("userId");
+          if (this.userId) {
+            let dateObject=new Date();
+            let order_no=dateObject.getTime();
+            const params=new URLSearchParams();
+            params.set("c","Order");
+            params.set("f","order_item");
+            params.set("user_id","1");
+            params.set("order_no",order_no);
+            params.set("product_id",this.productMsg.id);
+            params.set("product_name",this.productMsg.name);
+            params.set("product_image",this.productMsg.main_image);
+            params.set("current_unit_price",this.productMsg.price);
+            params.set("quantity",this.quantity);
+            params.set("total_price",this.productMsg.price*this.quantity);
+            this.axios.post("https://www.xiezehao.com/shop/shopPHP/index.php",params)
+                        .then(response=>{
+                            // console.log(response)
+                            this.$router.push("/confirm/"+order_no);
+                        });
+          }else{
+              this.$router.push("/login");
+          }
+          
+      },
+      add(){
+        this.quantity++;
+      },
+      reduce(){
+          if (this.quantity==1) {
+              this.quantity=1;
+          }else{
+              this.quantity--;
+          }
+      }
   }
 }
 </script>
@@ -81,8 +135,9 @@ export default {
 #imgList img{
     width: 98px;
     height: 98px;
-    margin-right: 10px;
+    margin-right: 6px;
     border: 1px solid #eee;
+    overflow: hidden;
 }
 #imgList img:hover{
     border: 1px solid #c60023;
@@ -160,6 +215,10 @@ export default {
     margin-left: 10px;
     color: #c60023;
     text-decoration: none;
+    cursor: pointer;
+}
+#shopcar:hover{
+    text-decoration: underline;
 }
 #productDetail{
     width: 1080px;
