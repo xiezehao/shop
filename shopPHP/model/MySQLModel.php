@@ -10,7 +10,6 @@ class MySQLModel extends BaseModel {
 
     public $server="localhost";
     public $username="root";
-//    public $password="Xie798351803";
     public $password="";
     public $db_name="shop";
     public $link;
