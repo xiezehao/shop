@@ -77,7 +77,7 @@ class UserController extends BaseController
             $question=$_REQUEST["question"];
             $answer=$_REQUEST["answer"];
             $link=new MySQLModel();
-            $result=$link->query("update `user` set `phone`='$phone',`email`='$email',`question`='$question',`answer`=$answer where `id`='$id'");
+            $result=$link->query("update `user` set `phone`='$phone',`email`='$email',`question`='$question',`answer`='$answer' where `id`='$id'");
             echo $result;
         }
     }

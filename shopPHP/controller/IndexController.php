@@ -6,14 +6,11 @@
  * Time: 14:40
  */
 //require_once 'config.php';
+//phpinfo();
 class IndexController extends BaseController {
 
     function index(){
-        $config=include("config.php");
-//        var_dump($config["qwe"]);
-//        var_dump($config["qwe"]);
-        var_dump($config["qwe"]);
-        echo "asd";
+        phpinfo();
     }
 
 

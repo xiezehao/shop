@@ -16,6 +16,9 @@
           <li><a href="javascript:void(0);" @click="toProductList('图书')">图书</a><a href="javascript:void(0);" @click="toProductList('音像')">音像</a><a href="javascript:void(0);" @click="toProductList('电子书')">电子书</a></li>
         </ul>
       </div>
+      <div >
+
+      </div>
 
       <div id="banner" style="overflow:hidden;">
         <transition-group name="move" tag="ul" >

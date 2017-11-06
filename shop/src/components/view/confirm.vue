@@ -180,6 +180,7 @@ export default {
         //   console.log(this.shipping[this.isActive].id);
           if (this.isActive) {
               alert("请选择地址");
+              return ;
           }
           const params=new URLSearchParams();
           params.set("c","Order");

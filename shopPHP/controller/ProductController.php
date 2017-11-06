@@ -19,4 +19,19 @@ class ProductController extends BaseController
 
     }
 
+    function getCategory(){
+        $link=new MySQLModel();
+        $result=$link->query("select `id`,`name` from `category` ");
+        echo json_encode($result);
+    }
+
+    function getProductByCategoryId(){
+        if ($_REQUEST){
+            $category_id=$_REQUEST["category_id"];
+            $link=new MySQLModel();
+            $res=$link->query("select `id`,`name`,`main_image` from `product` where `category_id`='$category_id'");
+            echo json_encode($res);
+        }
+    }
+
 }
