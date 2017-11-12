@@ -180,7 +180,7 @@ export default {
   },
   methods: {
       to(keyword){
-          console.log(keyword)
+        //   console.log(keyword)
         this.$router.push("/search/"+keyword);
       }
   }

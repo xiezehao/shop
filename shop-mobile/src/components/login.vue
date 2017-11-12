@@ -47,7 +47,7 @@ export default {
       login(){
           this.axios.get('https://www.xiezehao.com/shop/shopPHP/?c=User&f=login&username='+this.username+'&password='+this.password)
                     .then(res=>{
-                        console.log(res);
+                        // console.log(res);
                         if(res.data.code==100){
                             MessageBox.alert(res.data.msg, "登陆失败");
                         }else if(res.data.code==200){

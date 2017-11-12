@@ -29,9 +29,9 @@ export default {
   mounted () {
       this.axios.get("https://www.xiezehao.com/shop/shopPHP/?c=Search&f=search&keyword="+this.keyword)
                 .then(res=>{
-                    console.log(res);
+                    // console.log(res);
                     this.productList=res.data;
-                    console.log(this.productList)
+                    // console.log(this.productList)
                 })
   },
   methods: {

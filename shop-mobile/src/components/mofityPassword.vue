@@ -36,7 +36,7 @@ export default {
 
             this.axios.post("https://www.xiezehao.com/shop/shopPHP/",params)
                         .then(res=>{
-                            console.log(res);
+                            // console.log(res);
                             if (res.data=='1') {
                                 MessageBox.alert("", "修改成功，请重新登录");
                                 this.$router.push("/login");

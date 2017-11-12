@@ -1,28 +1,29 @@
 <template>
   <div id="product">
-      <div id="search">
+       <!-- <div id="search">
         <mt-search
             v-model="value"
             cancel-text="取消"
             placeholder="搜索">
         </mt-search>
-      </div>
+      </div>  -->
       <div id="left">
-        <ul>
+         <ul>
           <li v-for="(item,index) in category" :key="index" @click="change(item.id)">
             {{item.name}}
           </li>
-        </ul>
+        </ul> 
+        
       </div>
 
       <div id="right">
-        <ul>
+         <ul>
           <li v-for="(item,index) in product" :key="index">
              <img :src="item.main_image" alt=""> 
             {{item.name}}
             
           </li>
-        </ul>
+        </ul> 
       </div>
   </div>
 </template>
@@ -64,8 +65,15 @@ export default {
 }
 #left{
   width: 25%;
-  float: left;
-  overflow: hidden;
+  height: 667px;
+  /* display: inline-block; */
+   float: left; 
+  /* overflow: hidden; */
+  /* overflow-y: auto;
+   */
+   /* position: relative; */
+   overflow:scroll; /*任何时候都强制显示滚动条*/
+
 }
 #left ul{
   padding: 0;
@@ -78,8 +86,11 @@ export default {
   /* float: left; */
 }
 #right{
-  float: left;
-  width: 75%;
+   float: left; 
+  width: 70%;
+  height: 667px;
+  overflow: scroll;
+  
 }
 #right ul{
   padding: 0 10px;

@@ -10,7 +10,7 @@
           <li v-for="(item,index) in orderList" :key="index">
             <img :src="item.product_image" alt="">
             <div id="productMsg">
-              <span id="productName">{{item.product_name}}</span>
+              <p id="productName">{{item.product_name}}</p>
               <p>
                 <span id="quantity">x{{item.quantity}}</span>
                 <span id="total_price">价钱：{{item.total_price}}</span>
@@ -81,10 +81,18 @@ li>img{
   /* margin-right: 5px; */
   /* padding: 5px; */
 }
+#productName{
+  height: 36px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
 #productMsg{
    float: left; 
     width: 80%; 
    font-size: 14px;
+   padding-left: 10px;
+   box-sizing: border-box;
 }
 #quantity,#status{
   color:#ccc;

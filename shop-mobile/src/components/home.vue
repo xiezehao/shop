@@ -1,12 +1,12 @@
 <template>
   <div class="home">
      <router-view></router-view> 
-      <mt-tabbar v-model="selected" :fixed="fixed">
+       <mt-tabbar v-model="selected" :fixed="fixed">
         <mt-tab-item v-for="(item,index) in tab" :key="index" :id="item.index">
           <img slot="icon" :src="item.img"/>
           {{item.title}}
         </mt-tab-item> 
-      </mt-tabbar>
+      </mt-tabbar> 
     
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
   },
   watch:{
     selected:function(val, oldVal){
-      console.log(val)
+      // console.log(val)
       const _this=this;
       switch(val){
         case 0:
@@ -91,9 +91,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.home{
+/* .home{
   height: 100%;
-}
+} */
 #swipe{
   height: 500px;
 }

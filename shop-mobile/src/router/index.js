@@ -13,6 +13,7 @@ import userOrderList from '@/components/userOrderList'
 import search from '@/components/search'
 import productMsg from '@/components/productMsg'
 import orderMsg from '@/components/orderMsg'
+import pay from '@/components/pay'
 // import Mint from 'mint-ui'
 Vue.use(Router)
 // Vue.use(Mint)
@@ -61,6 +62,10 @@ export default new Router({
     },{
       path:'/orderMsg/:order_no',
       component:orderMsg
+    },{
+      name:'pay',
+      path:'/pay',
+      component:pay
     }
   ]
 })
