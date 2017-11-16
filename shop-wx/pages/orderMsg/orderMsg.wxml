@@ -1,0 +1,41 @@
+<!--pages/orderMsg/orderMsg.wxml-->
+<view class='content' hidden='{{orderMsgShow}}'>
+  <image class='image' src='{{orderMsg.product_image}}'></image>
+  <text class='name'>{{orderMsg.product_name}}</text>
+  <view class='clear'>
+    <text class='price'>价钱：¥{{orderMsg.current_unit_price}}</text>
+    <text class='quantity'>数量：{{orderMsg.quantity}}</text>
+  </view>
+</view>
+<view class='buy' hidden='{{orderMsgShow}}'>
+    <text>总价钱：¥{{orderMsg.total_price}}</text>
+    <text class='buying' bindtap='buying'>去付款</text>
+  </view>
+<view class='addShipping' hidden='{{addShippingShow}}' bindtap='addShipping'>
+  <image src='../../src/image/add.png'></image>
+  <view>
+    <text>填加地址</text>  
+  </view> 
+</view>
+
+<view hidden='{{shippingListShow}}'>
+  <view wx:for="{{shipping}}" class='shippingList' data-index="{{index}}" bindtap='chooce'>
+    <text class='receiver_name'>{{item.receiver_name}}</text>
+    <text class='receiver_moblie'>{{item.receiver_moblie}}</text>
+    <view>
+      <text class='address'>{{item.receiver_province}} {{item.receiver_city}} {{item.receiver_district}} {{item.receiver_address}}</text>
+    </view>
+  </view>
+</view>
+
+<view hidden='{{chooiseShippingShow}}'  bindtap='addShipping'>
+<view>
+<text>收货地址</text>
+</view>
+
+  <text class='receiver_name'>{{chooiseShipping.receiver_name}}</text>
+    <text class='receiver_moblie'>{{chooiseShipping.receiver_moblie}}</text>
+    <view>
+      <text class='address'>{{chooiseShipping.receiver_province}} {{chooiseShipping.receiver_city}} {{chooiseShipping.receiver_district}} {{chooiseShipping.receiver_address}}</text>
+    </view>
+</view>

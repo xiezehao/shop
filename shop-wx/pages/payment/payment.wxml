@@ -1,0 +1,16 @@
+<!--pages/payment/payment.wxml-->
+<view>
+  <text>订单提交成功，请您尽快支付! </text>
+</view> 
+
+<view>
+  <text>订单号：<text style='font-weight:700;color:#1296db;'>{{order_no}}</text></text>
+</view>
+
+<view>
+  <text>请使用  <text style='font-weight:700;color:#1296db;font-size:18px;'>支付宝 沙箱版</text>   扫描如下二维码进行支付：</text>
+</view>
+
+<view>
+  <image src="{{qrImage}}" alt="无法显示二维码，请刷新"></image>
+</view>

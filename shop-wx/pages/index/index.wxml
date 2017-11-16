@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view>
+  <view id='search'>
+    <image src='../../src/image/home/search.png' width="10"></image>
+    <input type='text' confirm-type='search' placeholder='搜索产品' bindconfirm="search"></input>
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#fff" circular='{{circular}}'>
+    <swiper-item wx:for="{{imgList}}">
+      <image src="{{item}}" id='swiper_img'></image>
+    </swiper-item>
+  </swiper>
+  <view>
+  <scroll-view>
+  <view wx:for="{{productList}}">
+      <text id='productList_title'>
+        {{item.title}}
+      </text>
+
+      <view wx:for="{{item.product}}" id='product'>
+        <text id='product_name'>{{item.name}}</text>
+        <image src='{{item.src}}' id='product_img' lazy-load="true"></image>
+      </view>
+    </view>
+  </scroll-view>
+    
+  </view>
+
+</view>

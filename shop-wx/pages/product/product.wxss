@@ -1,0 +1,45 @@
+/* pages/product/product.wxss */
+page{
+  height: 100%;
+  overflow: hidden;
+}
+#category{
+  font-size: 14px;
+   margin: 10px; 
+   /* position: absolute; */
+}
+#name{
+  /* margin: 10px 10px 0 10px; */
+}
+#scrollViewLeft{
+  width: 25%;
+  /* height: 624px;  */
+  height: 100%;
+  overflow-y: scroll;
+  float: left;
+}
+#scrollViewRight{
+  width: 70%;
+   /* height: 624px;  */
+   height: 100%;
+  float: left;
+  overflow-y: scroll;
+  font-size: 14px;
+  padding: 0 5px;
+}
+#product{
+  padding-top: 10px;
+  border-bottom: 1px solid #cdcdcd;
+  height: 90px;
+}
+#product_image{
+  width: 30%;
+  height: 80px;
+    float: left;  
+}
+#product_name{
+  width: 70%;
+  height: 80px;
+    float: left;  
+  /* width: 50%; */
+}

@@ -1,0 +1,28 @@
+<!--pages/user/user.wxml-->
+<view>
+  <view class='title'>
+    <text>个人信息</text>
+  </view>
+
+  <view class='text'>
+    <text>用户名：{{userMsg.username}}</text>
+  </view>
+
+  <view class='text'>
+    <text>电话：{{userMsg.phone}}</text>
+  </view>
+
+  <view class='text'>
+    <text>邮箱：{{userMsg.email}}</text>
+  </view>
+
+  <view class='text'>
+    <text>问题：{{userMsg.question}}</text>
+  </view>
+
+  <view class='text'>
+    <text>答案：{{userMsg.answer}}</text>
+  </view>
+  
+  <button type="primary" size="mini" bindtap="mofity"> 编辑 </button>
+</view>

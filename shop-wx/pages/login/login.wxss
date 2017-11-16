@@ -1,0 +1,26 @@
+/* pages/login/login.wxss */
+page{
+  height: 100%;
+}
+.content{
+  background: #f7f7f7;
+  height: 100%;
+  padding-top: 10px;
+}
+.title{
+  text-align: center;
+}
+.name,.password{
+  padding: 5px 10px;
+  background: white;
+  margin-top: 10px;
+}
+.btn{
+  margin-top: 10px;
+  background: white;
+  font-size: 12px;
+}
+.btn button{
+  background: white;
+  font-size: 16px;
+}

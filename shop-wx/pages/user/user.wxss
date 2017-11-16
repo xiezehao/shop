@@ -1,0 +1,10 @@
+/* pages/user/user.wxss */
+page{
+  padding: 10px 5px;
+}
+.title{
+  text-align: center;
+}
+.text,button{
+  margin-top: 10px;
+}

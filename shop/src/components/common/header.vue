@@ -145,6 +145,7 @@ export default {
     border: 2px solid #1E90FF;
     font-size: 15px;
     padding: 10px;
+    outline: none;
 }
 #searchButton{
     width: 80px;

@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/product/product",
+    "pages/center/center",
+    "pages/login/login",
+    "pages/user/user",
+    "pages/mofityPassword/mofityPassword",
+    "pages/orderList/orderList",
+    "pages/search/search",
+    "pages/productMsg/productMsg",
+    "pages/orderMsg/orderMsg",
+    "pages/payment/payment"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "豪商城",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "src/image/home-icon2.png",
+        "selectedIconPath": "src/image/home-icon.png"
+      },
+      {
+        "pagePath": "pages/product/product",
+        "text": "产品",
+        "iconPath": "src/image/product-icon2.png",
+        "selectedIconPath": "src/image/product-icon.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "个人中心",
+        "iconPath": "src/image/center-icon2.png",
+        "selectedIconPath": "src/image/center-icon.png"
+      }
+    ]
+  }
+}

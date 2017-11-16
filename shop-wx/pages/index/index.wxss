@@ -1,0 +1,45 @@
+/**index.wxss**/
+#search{
+  height: 24px;
+  border: 5px solid #cdcdcd;
+  padding: 3px 5px;
+  font-size: 12px;
+}
+#search image{
+  width: 16px;
+  height: 16px;
+  /* display: inline-block; */
+  float: left;
+  margin-top: 3px;
+  /* margin-left: 5px; */
+}
+#search input{
+  margin: 0;
+  width: 93%;
+  float: left;
+  padding-left: 5px;
+}
+#swiper_img{
+  width: 100%;
+}
+#productList_title{
+  display: block;
+  text-align: center;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  clear: both;
+}
+#product{
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+#product_img{
+   width: 50%; 
+   height: 50px;
+}
+#product_name{
+  display: block;
+  margin: 10px;
+  font-size: 14px;
+}

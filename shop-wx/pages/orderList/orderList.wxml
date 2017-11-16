@@ -1,0 +1,13 @@
+<!--pages/orderList/orderList.wxml-->
+
+<view wx:for="{{orderList}}" class='content'>
+  <image src='{{item.product_image}}'></image>
+  <text class='productName'>{{item.product_name}}</text>
+
+  <view class='msg'>
+    <text>x{{item.quantity}}</text>
+    <text>{{item.total_price}}</text>
+    <text>{{item.status}}</text>
+  </view>
+  
+</view>

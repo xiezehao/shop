@@ -1,0 +1,43 @@
+/* pages/center/center.wxss */
+#top{
+  width: 100%;
+  height: 100px;
+  background: #1296db;
+}
+#msg{
+  width: 70px;
+  height: 70px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+#msg image{
+  width: 50px;
+  height: 50px;
+}
+#line{
+  background: #ddd;
+  height: 10px;
+}
+#centerMsg{
+  clear: both;
+  font-size: 14px;
+  padding: 10px 5px;
+  /* border-top: 1px solid #cdcdcd; */
+  border-bottom: 1px solid #cdcdcd;
+  height: 16px;
+  background: white;
+}
+#centerMsg text{
+  line-height: 16px;
+  float: left;
+}
+#centerMsg image{
+  float: right;
+  width: 15px;
+  height: 15px;
+}

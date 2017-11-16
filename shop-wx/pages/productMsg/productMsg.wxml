@@ -1,0 +1,37 @@
+<!--pages/productMsg/productMsg.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view>
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#fff" circular='{{circular}}'>
+  <swiper-item wx:for="{{swiper}}">
+    <image src="{{item}}"></image>
+  </swiper-item>
+</swiper>
+
+<view class='content'>
+  <view>
+    <text class='name'>{{productMsg.name}}</text>
+  </view>
+  <view>
+    <text class='subtitle'>{{productMsg.subtitle}}</text>
+  </view>
+  <view class='text'>
+    <text class='subtitle left'>价钱:{{productMsg.price}}</text>
+    <text class='add' bindtap='add'>+</text>
+    <text class='count'>{{count}}</text>
+    <text class='reduce' bindtap='reduce'>-</text>
+    
+    <text class='subtitle right'>库存：{{productMsg.stock}}</text>
+  </view>
+  <view class='detailStr'>
+    <text>商品详情</text>
+  </view>
+  <template is="wxParse" data="{{wxParseData:detail.nodes}}"/>  
+
+  
+</view>
+
+<view class='buy' bindtap='buy'>
+    <text>立即购买</text>
+  </view>
+</view>

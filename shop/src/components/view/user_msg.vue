@@ -52,8 +52,21 @@ export default {
   },
   methods: {
     modify(){
+      if (!/^1[34578]\d{9}$/.test(this.phone)) {
+          alert("请填写正确的手机号码");
+          return;
+      }
+      if (!/[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/.test(this.email)) {
+          alert("email填写错误");
+          return;
+      }
+      if (!this.question||!this.answer) {
+          alert("请填写问题和答案，用于找回密码");
+          return;
+      }
       const _this=this;
       const params=new URLSearchParams();
+
       params.set("c","User");
       params.set("f","modifyUser");
       params.set("id",this.userId);
@@ -63,7 +76,7 @@ export default {
       params.set("answer",this.answer);
       this.axios.post("https://www.xiezehao.com/shop/shopPHP/",params)
                 .then(response=>{
-                  console.log(response);
+                  // console.log(response);
                   if(response.data){
                     alert("修改成功");
                     _this.$router.go(0);

@@ -287,8 +287,12 @@ export default {
   text-decoration: none;
   margin-left: 5px;
 }
+#fenlei-list a:hover{
+  text-decoration: underline;
+}
 #fenlei-list li:hover{
   background: white;
+  
 }
 #fenlei-list li:hover a{
   color: #1E90FF;
@@ -353,6 +357,7 @@ export default {
   margin-top: 20px;
   display: inline-block;
   overflow: hidden;
+  text-align: center;
 }
 .child p{
 }
@@ -360,9 +365,18 @@ export default {
   width:160px;
   height:165px;
   margin-top: 15px;
+  overflow: hidden;
 }
 .mr{
   margin-right: 15px;
+}
+.child:hover{
+  /* border: 1px solid #ddd;
+  box-sizing: border-box; */
+}
+.child:hover img{
+  transform: scale(1.2);
+  overflow: hidden; 
 }
 
 .move-enter-active {

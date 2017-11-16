@@ -1,0 +1,13 @@
+<!--pages/search/search.wxml-->
+<!-- <view wx:for="{{productList}}">
+{{item.id}}
+</view> -->
+<view wx:for="{{productList}}" data-id="{{item.id}}" class='content' bindtap='to'>
+  <image src='{{item.main_image}}'></image>
+  <text class='productName'>{{item.name}}</text>
+
+  <view class='msg'>
+    <text>{{item.price}}</text>
+  </view>
+  
+</view>

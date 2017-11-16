@@ -1,0 +1,56 @@
+/* pages/orderMsg/orderMsg.wxss */
+.content{
+  height: 110px;
+  padding: 10px;
+  border-bottom: 1px solid #cdcdcd;
+}
+.image{
+  width: 20%;
+  height: 80px;
+  float: left;
+}
+.name{
+  width: 80%;
+  float: left;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.clear{
+  clear: both;
+  padding-top: 10px;
+}
+.quantity{
+  float: right;
+}
+.price{
+  float: left;
+}
+.addShipping{
+  clear: both;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+}
+.addShipping image{
+  width: 50px;
+  height: 50px;
+  margin-top: 15px;
+}
+.buy{
+  width: 100%;
+  color: white;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  background: red;
+}
+.buying{
+  float: right;
+  margin-right: 15px;
+}
+.receiver_moblie{
+  float: right;
+}
+.shippingList{
+  padding: 5px;
+}

@@ -1,0 +1,17 @@
+<!--pages/product/product.wxml-->
+<!-- <view> -->
+<!-- <scroll-view scroll-y="true" id='scrollViewLeft'> -->
+<view id='scrollViewLeft'>
+  <view wx:for="{{category}}" id='category'  bindtap='category' data-id='{{item.id}}'>
+    <text id="name">{{item.name}}</text>
+</view>
+</view>
+
+<view id='scrollViewRight'>
+  <view wx:for="{{product}}" id='product'>
+    <image src='{{item.main_image}}' id='product_image'></image>
+    <label id='product_name'>{{item.name}}</label>
+  </view> 
+
+</view>
+

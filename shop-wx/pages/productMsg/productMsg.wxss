@@ -1,0 +1,50 @@
+/* pages/productMsg/productMsg.wxss */
+@import "../../wxParse/wxParse.wxss";
+.name{
+  font-size: 14px;
+}
+.subtitle{
+  font-size: 14px;
+  color: red;
+}
+.content{
+  padding:10px 5px;
+}
+.right{
+  float: right;
+}
+.add{
+  margin-left: 15%;
+}
+.add,.count,.reduce{
+  padding: 0 3px;
+  border: 1px solid black;
+  margin-right: 3px;
+  font-size: 14px;
+}
+view{
+  margin-top: 5px;
+  padding-bottom: 10px;
+}
+.text{
+  /* margin-bottom: 5px; */
+  border-bottom: 1px solid #cdcdcd;
+}
+.detailStr{
+  text-align: center;
+  font-weight: bold;
+}
+.buy{
+  width: 100%;
+  background: red;
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  margin: 0;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+}
+.wxParse-div{
+  text-align: center;
+}

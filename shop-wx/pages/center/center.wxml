@@ -1,0 +1,25 @@
+<!--pages/center/center.wxml-->
+<view id='top'>
+  <view id='msg'>
+    <image src='../../src/image/center/touxiang.png' ></image>
+    <text id='name'> admin </text>
+  </view>
+</view>
+
+<view id='line'>
+</view>
+
+<view id='centerMsg' bindtap="to">
+  <text>个人信息</text>
+  <image src='../../src/image/center/right.png'></image>
+</view>
+
+<view id='centerMsg' bindtap='toOrderList'>
+  <text>我的订单</text>
+  <image src='../../src/image/center/right.png'></image>
+</view>
+
+<view id='centerMsg' bindtap='toMP'>
+  <text>修改密码</text>
+  <image src='../../src/image/center/right.png'></image>
+</view>

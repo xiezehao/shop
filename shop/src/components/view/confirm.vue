@@ -169,10 +169,15 @@ export default {
     this.axios.all([_this.getOrder_item(),_this.getShipping()])
         .then(_this.axios.spread(function(order_item,shipping) {
             _this.order_item=order_item.data;
-            shipping.data.forEach(function(element,index) {
-                element.index=index;
-            }, this);
-            _this.shipping=shipping.data;
+            // let array
+            // this.shipping.data.forEach(function(element,index) {
+            //     element.index=index;
+            // }, this);
+            if(shipping.data!="0-"){
+                _this.shipping=shipping.data;
+            }
+            
+            // console.log(shipping.data);
         }))
   },
   methods: {
