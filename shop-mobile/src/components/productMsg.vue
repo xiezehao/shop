@@ -40,7 +40,8 @@ export default {
             productMsg: {},
             sub_image: [],
             count: 1,
-            detail:""
+            detail: "",
+            userId: ""
 
         }
     },
@@ -52,8 +53,8 @@ export default {
                 // console.log(res.data[0].sub_images)
                 this.sub_image = res.data[0].sub_iamges.split(",");
                 // console.log(this.sub_image);
-                this.detail=res.data[0].detail.replace(/790/ig,"100%");
-                this.detail=this.detail.replace(/height/ig,"data-h");
+                this.detail = res.data[0].detail.replace(/790/ig, "100%");
+                this.detail = this.detail.replace(/height/ig, "data-h");
                 // console.log(this.detail);
             })
     },
@@ -68,21 +69,27 @@ export default {
         buy() {
             let dateObject = new Date();
             let order_no = dateObject.getTime();
-            const params = new URLSearchParams();
-            params.set("c", "Order");
-            params.set("f", "order_item");
-            params.set("user_id", "1");
-            params.set("order_no", order_no);
-            params.set("product_id", this.productMsg.id);
-            params.set("product_name", this.productMsg.name);
-            params.set("product_image", this.productMsg.main_image);
-            params.set("current_unit_price", this.productMsg.price);
-            params.set("quantity", this.count);
-            params.set("total_price", this.productMsg.price * this.count);
-            this.axios.post("https://www.xiezehao.com/shop/shopPHP/index.php", params)
-                .then(response => {
-                    this.$router.push("/orderMsg/" + order_no);
-                });
+            let userId = sessionStorage.getItem("id");
+            if (!userId) {
+                this.$router.push("/login");
+            } else {
+                const params = new URLSearchParams();
+                params.set("c", "Order");
+                params.set("f", "order_item");
+                params.set("user_id", userId);
+                params.set("order_no", order_no);
+                params.set("product_id", this.productMsg.id);
+                params.set("product_name", this.productMsg.name);
+                params.set("product_image", this.productMsg.main_image);
+                params.set("current_unit_price", this.productMsg.price);
+                params.set("quantity", this.count);
+                params.set("total_price", this.productMsg.price * this.count);
+                this.axios.post("https://www.xiezehao.com/shop/shopPHP/index.php", params)
+                    .then(response => {
+                        this.$router.push("/orderMsg/" + order_no);
+                    });
+            }
+
         }
     }
 }

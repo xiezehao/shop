@@ -89,7 +89,7 @@ class UserController extends BaseController
             $newPassword=$_REQUEST["newPassword"];
             $link=new MySQLModel();
             $result=$link->query("update `user` set `password`='$newPassword' where `id`='$id' and `password` = '$oldPassword'");
-            echo $result;
+            echo json_encode($result);
         }
     }
 
