@@ -38,9 +38,9 @@
     <div id="productList">
       <ul>
         <!-- f1 -->
-        <li>
+        <li class="productListTitle">
           <div class="title">
-            F1  家用电器
+            1F  家用电器
           </div>
 
           <ul>
@@ -67,9 +67,9 @@
           </ul>
         </li>
         <!-- f2 -->
-        <li>
+        <li class="productListTitle">
           <div class="title">
-            F2  数码3C
+            2F  数码3C
           </div>
 
           <ul>
@@ -96,9 +96,9 @@
           </ul>
         </li>
         <!-- f3 -->
-        <li>
+        <li class="productListTitle">
           <div class="title">
-            F3  服装箱包
+            3F  服装箱包
           </div>
 
           <ul>
@@ -125,9 +125,9 @@
           </ul>
         </li>
         <!-- f4 -->
-        <li>
+        <li class="productListTitle">
           <div class="title">
-            F4  食品生鲜
+            4F  食品生鲜
           </div>
 
           <ul>
@@ -154,9 +154,9 @@
           </ul>
         </li>
         <!-- f5 -->
-        <li>
+        <li class="productListTitle">
           <div class="title">
-            F5  酒水饮料
+            5F  酒水饮料
           </div>
 
           <ul>
@@ -183,6 +183,20 @@
           </ul>
         </li>
         
+      </ul>
+    </div>
+
+    <div class="top" @click="ding">
+      <img src="../assets/home/top.png" alt="">
+    </div>
+
+    <div class="leftList">
+      <ul>
+        <li v-for="(item,index) in 5" :key="index" @click="leftList(index)">{{index+1}}F</li>
+        <!-- <li>2F</li>
+        <li>3F</li>
+        <li>4F</li>
+        <li>5F</li> -->
       </ul>
     </div>
   </div>
@@ -224,6 +238,7 @@ export default {
   },
   mounted () {
     this.run();
+    this.top();
   },
   methods:{
     toProductList:function(keyword){
@@ -253,6 +268,42 @@ export default {
           this.imgIndex++;
         }
       },2000)
+    },
+    top(){
+      let top=document.getElementsByClassName("top")[0];
+      let leftList=document.getElementsByClassName("leftList")[0];
+      // console.log(leftList)
+      window.onscroll=function() {
+        let scrollTop=document.documentElement.scrollTop;
+        // console.log(top.style.display);
+        if (scrollTop>=500) {
+          top.style.opacity="1";
+        }else{
+          top.style.opacity="0";
+        }
+// leftList.style.opacity="1";
+        // if (scrollTop>=500) {
+        //   leftList.style.opacity="1";
+        // }else{
+        //   leftList.style.opacity="0";
+        // }
+
+      }
+    },
+    ding(){
+      var timer=setInterval(function() {
+        let scrollTop=document.documentElement.scrollTop;
+        if (scrollTop==0) {
+          clearInterval(timer);
+        }
+        let ostop=Math.ceil(scrollTop/5);
+        document.documentElement.scrollTop=scrollTop-ostop;
+        
+      }, 30);
+    },
+    leftList(index){
+      let top=document.getElementsByClassName("productListTitle")[index].offsetTop;
+      document.documentElement.scrollTop=top;
     }
   },
   components: {
@@ -392,5 +443,36 @@ export default {
 }
 .move-leave {
   transform: translateX(0);
+}
+.top{
+  /* width: 50px;
+  height: 50px; */
+  position: fixed;
+  bottom: 100px;
+  left: calc(50% + 550px);
+  /* display: none; */
+  opacity: 0;
+  /* display: inline; */
+  cursor: pointer;
+  transition: opacity 1s; 
+}
+.leftList{
+  position: fixed;
+  top:50%;
+  left: calc(50% - 620px);
+  /* transform: translate() */
+}
+.leftList li{
+  padding: 10px;
+  background: #d58717;
+  color: white;
+  border-bottom: 1px solid #bbb;
+  cursor: pointer;
+  /* opacity: 0; */
+  transition: opacity 1s; 
+}
+.leftList li:hover{
+  background: white;
+  color: #d58717;
 }
 </style>

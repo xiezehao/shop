@@ -17,12 +17,15 @@
       </div>
 
       <div id="right">
+
+        <p v-show="isShow">暂无数据</p>
          <ul>
-          <li v-for="(item,index) in product" :key="index">
+           <li v-for="(item,index) in product" :key="index">
              <img :src="item.main_image" alt=""> 
-            {{item.name}}
+            <p>{{item.name}}</p>
             
-          </li>
+          </li> 
+
         </ul> 
       </div>
   </div>
@@ -33,7 +36,8 @@ export default {
   data () {
     return {
       category:[],
-      product:[]
+      product:[],
+      isShow:false,
     }
   },
   mounted () {
@@ -49,7 +53,14 @@ export default {
       // this.product=[];
       this.axios.get("https://www.xiezehao.com/shop/shopPHP/?c=Product&f=getProductByCategoryId&category_id="+id)
                 .then(res=>{
-                  this.product=res.data;
+                  if (res.data!="0-") {
+                    this.product=res.data;
+                    this.isShow=false;
+                  }else{
+                    this.product=[];
+                    this.isShow=true;
+                  }
+                  
                 })
     }
   }
@@ -64,8 +75,8 @@ export default {
   height: 52px;
 }
 #left{
-  width: 25%;
-  height: 667px;
+   /* width: 30%;  */
+  height: 100%;
   /* display: inline-block; */
    float: left; 
   /* overflow: hidden; */
@@ -77,29 +88,30 @@ export default {
 }
 #left ul{
   padding: 0;
-  border-right: 1px solid black;
+  border-right: 1px solid #ddd;
 }
 #left li{
   list-style-type: none;
-  padding: 5px 10px;
-  font-size: 18px;
+  padding: 5px 5px;
+  font-size: 16px;
   /* float: left; */
 }
 #right{
    float: left; 
-  width: 70%;
-  height: 667px;
+    width: 70%;  
+   height: 100%; 
   overflow: scroll;
-  
+  box-sizing: border-box;
 }
 #right ul{
   padding: 0 10px;
+  box-sizing: border-box;
 }
 #right li{
    height: 60px; 
   list-style-type: none;
   font-size: 12px;
-  padding: 15px 10px;
+  padding: 15px 10px 0 15px;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 2px 2px 5px gray;
@@ -111,7 +123,9 @@ export default {
   float: left;
   margin-right: 10px;
 }
-#right {
-
+#right p{
+  height: 47px;
+  margin: 0;
+  overflow: hidden;
 }
 </style>
