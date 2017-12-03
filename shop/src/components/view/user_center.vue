@@ -26,6 +26,7 @@ export default {
                 {index:0,text:"个人中心",to:"/user_center/"},
                 {index:1,text:"我的订单",to:"/user_center/user_order"},
                 {index:2,text:"修改密码",to:"/user_center/modify_password"},
+                {index:3,text:"收货地址",to:"/user_center/user_address"},
             ]
         }
     },

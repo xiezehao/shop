@@ -15,6 +15,7 @@ import user_order from "@/components/view/user_order"
 import modify_password from "@/components/view/modify_password"
 import user_orderMsg from "@/components/view/user_orderMsg"
 import forgetPassword from "@/components/view/forgetPassword"
+import user_address from "@/components/view/user_address"
 Vue.use(Router)
 
 export default new Router({
@@ -69,6 +70,9 @@ export default new Router({
         },{
           path:"user_orderMsg/:order_no",
           component:user_orderMsg
+        },{
+          path:"user_address",
+          component:user_address
         }
       ]
     },{
